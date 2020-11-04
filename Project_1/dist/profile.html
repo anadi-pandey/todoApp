@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .file input{
+            opacity: 0;
+           
+        }
+        
+        .file-custom:before{
+            position: absolute;
+            content: 'Choose Display Picture';
+           left: 0;
+            width: 200px;
+            border: 1px solid #999999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+            text-shadow: 1px 1px #ffffff;
+            background: linear-gradient(top,#f9f9f9, #e3e3e3);
+            font-size: 15pt;
+
+          
+        }
+    </style>
+</head>
+
+<body>
+    <label class="file">
+        <input type="file" id="file" aria-label="File browser example">
+        <span class="file-custom"></span>
+        <img id="myImg" src="#" alt="your image" height=200 width=100>
+      </label>
+</body>
+
+
+
+<script>
+  window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');  // $('img')[0]
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+          img.onload = imageIsLoaded;
+      }
+  });
+});
+
+function imageIsLoaded(){
+
+}
+</script>
+
+</html>
