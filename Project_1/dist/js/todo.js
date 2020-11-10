@@ -32,11 +32,13 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Adding checked symbol 
-
+var complete = [];
+var comp = 0;
 var list = document.querySelector('ul');
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('checked');
+        ev.target.classList.toggle('checked')
+        ev.target.classList.toggle('Completed');
     }
 }, false);
 
@@ -79,13 +81,6 @@ function newElement() {
 }
 
 
-//  function to put things in the array 
-// function push_In_Array(entry) {
-//     arr.push(entry);
-//     console.log(arr);
-//     push_in_session(arr);
-// }
-
 
 
 
@@ -95,17 +90,13 @@ function push_in_session(arr) {
 
 
     if (in_the_session.todo_items[0] == "No Items Present") {
-        in_the_session.todo_items.splice(0,1);
+        in_the_session.todo_items.splice(0, 1);
     } else {
-        // var already_present = in_the_session.todo_items;
 
-
-
-        // in_the_session.todo_items = arr;
         console.log(in_the_session);
         var move = JSON.stringify(in_the_session);
         sessionStorage.setItem('current_user', move);
-        // console.log(sessionStorage.getItem('current_user'));
+
 
     }
 
@@ -236,21 +227,20 @@ var local_array = JSON.parse(local);
 push_in_local();
 
 
-function push_in_local(){
-   
+function push_in_local() {
+
     var indexofchange = 0;
 
-    for(p =0;p<local_array.length;p++)
-    {
-        if(local_array[p].eadd === in_the_session.eadd)
-        {
+    for (p = 0; p < local_array.length; p++) {
+        if (local_array[p].eadd === in_the_session.eadd) {
             indexofchange = p;
             console.log(p);
         }
     }
 
     local_array[indexofchange] = in_the_session;
-    var ready =JSON.stringify(local_array);
-    localStorage.setItem('user',ready);
+    var ready = JSON.stringify(local_array);
+    localStorage.setItem('user', ready);
 }
+
 
