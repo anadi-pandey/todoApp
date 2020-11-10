@@ -1,6 +1,3 @@
-
-
-
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 
@@ -14,12 +11,10 @@ for (i = 0; i < myNodelist.length; i++) {
 
 
 
-// Click ability to close button
+// ---------Click ability to close button-----------
 
 var close = document.getElementsByClassName("close");
-
 var i;
-
 for (i = 0; i < close.length; i++) {
 
     close[i].onclick = function () {
@@ -31,10 +26,11 @@ for (i = 0; i < close.length; i++) {
     }
 }
 
-// Adding checked symbol 
+//-----------Adding checked symbol------------------
 var complete = [];
 var comp = 0;
 var list = document.querySelector('ul');
+
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked')
@@ -81,11 +77,8 @@ function newElement() {
 }
 
 
+// -------------array pushed in the session Storage----------
 
-
-
-
-// array pushed in the session Storage
 function push_in_session(arr) {
 
 
@@ -103,41 +96,15 @@ function push_in_session(arr) {
 
 }
 
-
-
-
 const user_Name_Object = localStorage.getItem('user');
 const user_Nam = JSON.parse(user_Name_Object);
 
 console.log(user_Nam);
-
-
-
-
-
-
-
-// Aldready loaded elements from session storage
-
-// function loadMyPrevious() {
-//     for (z = 0; z < array_to_load.length; z++) {
-//         var li = document.createElement("li");
-//         var input_value = array_to_load[z];
-//         span.appendChild(txt);
-//         li.appendChild(span);
-//     }
-// }
-
 const sessionString = sessionStorage.getItem('current_user');
 const sessionObject = JSON.parse(sessionString);
 console.log(sessionObject);
 
 
-
-// var array_to_load = sessionObject.todo_items;
-
-
-// console.log(len);
 
 // LOading the previously stored tasks
 
