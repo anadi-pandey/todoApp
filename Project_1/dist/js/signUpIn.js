@@ -29,9 +29,6 @@ formin.addEventListener('submit', (e) => {
                 console.log(getDataArray[dataIN]);
                 sessionStorage.setItem('current_user', dataIN);
             }
-        }else{
-            e.preventDefault();
-            alert("Wrong Credentials");
         }
 
     }
