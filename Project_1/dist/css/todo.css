@@ -125,19 +125,17 @@ ul li.Completed{
 
 .header button{
     position: absolute;
-    left: 85%;
+    right: 50px;
     top: 10%;
-   
-    padding: 10px;
-    width: 10%;
-    background:#d9d9d9;
+    width: 280px;
+    background-color: white;
     color: #421C52;
-   
-    text-align: center;
-    font-size: 16px;
-    cursor: crosshair;
-    transition: 0.2s;
-   border: none;
+    padding: 16px 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 input {
@@ -184,10 +182,12 @@ font-size: 16px;
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
+  background-color: white;
+  color: #421C52;
   padding: 16px 20px;
   border: none;
+  font-weight: bold;
+  font-size: 25px;
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
@@ -202,15 +202,18 @@ font-size: 16px;
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
+  /* border: 3px solid #f1f1f1; */
   z-index: 9;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 /* Add styles to the form container */
 .form-container {
   max-width: 800px;
+  width: 100%;
   padding: 10px;
-  background-color: white;
+  background-color: #e6be8a;
 }
 
 /* Full-width input fields */
