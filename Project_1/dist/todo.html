@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project_1/dist/css/todo.css">
+    <link rel="stylesheet" href="./css/todo.css">
 
 </head>
 
-<body >
+<body>
     <section class="head">
         <div id="myDIV" class="header">
             <h2>TO-DO</h2>
@@ -54,8 +54,47 @@
         }
 
     </script> -->
-   
-    <script src="/Project_1/dist/js/todo.js"></script>
+
+    <script src="./js/todo.js"></script>
+
+    <button class="open-button" onclick="openForm()">Open Form</button>
+     
+
+    <div class="form-popup" id="myForm">
+        <script src="./js/dashboard.js"></script>
+        <div class="form-container">
+
+            <h1>Set Reminders</h1>
+
+            <label for="Date"></label>
+            <input type="date" id="Date" name="date">
+
+            <select  name="Reminders" id="appendIt">
+
+            </select>
+
+            <button type="button" class="btn">Update</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close Form</button>
+
+        </div>
+
+    </div>
+
+    <script>
+       
+        var myDetails = sessionStorage.getItem('current_user');
+        var objDetails = JSON.parse(myDetails);
+
+function optionUpdate () {
+    for (k = 0; k < objDetails.todo_items.length; k++) {
+            var x = document.getElementById("appendIt");
+            var option = document.createElement("option");
+            option.text = objDetails.todo_items[k];
+            x.add(option, x[0]);
+        }
+}
+       
+    </script>
 
 </body>
 
