@@ -120,6 +120,7 @@ function addUser() {
     let imgRef = imgUrl;
     let password = document.getElementById("conPassword").value;
     let array = ["No Items Present"];
+    let arrayRemind = ["No reminders yet"];
     var userObj = {
         fName: firstName,
         lName: lastName,
@@ -127,7 +128,9 @@ function addUser() {
         eadd: emailAdd,
         img: imgRef,
         pass: password,
-        todo_items:array
+        // Added recently,
+        todo_items:array,
+        remind_user:arrayRemind
     };
 
     Push_details_local(userObj);

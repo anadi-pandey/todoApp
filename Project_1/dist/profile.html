@@ -45,6 +45,8 @@
                     const user_name = sessionStorage.getItem('current_user');
                     const usrNam = JSON.parse(user_name);
                    var todoitems = usrNam.todo_items;
+                //    Added recently -
+                   var remind_them = usrNam.remind_user;
                    var password = usrNam.pass;
 
                     let Fname = document.getElementById('firstName').value;
@@ -84,7 +86,9 @@
                         eadd: emailAddress,
                         gen: updatedGender,
                         todo_items:todoitems,
-                        pass: password
+                        pass: password,
+                        // Added recently-
+                        remind_user:remind_them
                     }
 
                     console.log(obj);
