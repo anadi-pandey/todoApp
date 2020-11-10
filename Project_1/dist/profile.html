@@ -5,56 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .file input{
-            opacity: 0;
-           
-        }
-        
-        .file-custom:before{
-            position: absolute;
-            content: 'Choose Display Picture';
-           left: 0;
-            width: 200px;
-            border: 1px solid #999999;
-            border-radius: 3px;
-            padding: 5px 8px;
-            outline: none;
-            white-space: nowrap;
-            cursor: pointer;
-            text-shadow: 1px 1px #ffffff;
-            background: linear-gradient(top,#f9f9f9, #e3e3e3);
-            font-size: 15pt;
+    <link rel="stylesheet" href="/Project_1/dist/css/profile.css">
 
-          
-        }
-    </style>
 </head>
 
 <body>
-    <label class="file">
-        <input type="file" id="file" aria-label="File browser example">
-        <span class="file-custom"></span>
-        <img id="myImg" src="#" alt="your image" height=200 width=100>
-      </label>
+
+    <div class="header">
+        <h1>
+            Profile
+        </h1>
+        <button onclick="parent.location = 'todo.html'">TO-DO</button>
+    </div>
+    <div class="upperBackground">
+        <!-- <img src="/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg" alt=""> -->
+
+        <div class="profilesection">
+            <div class="dp">
+                <img class="display_picture" id="myImg" src="/Project_1/dist/img/img_avatar.png" alt="">
+            </div>
+            <div class="main_form">
+                <p> FIRST NAME : <input id="firstName"></input> </p>
+
+                <p>
+                    LAST NAME: <input id="lastName"></input>
+                </p>
+
+                <p>EMAIL ADDRESS: <input id="userEmail"></input></p>
+
+                <p>GENDER: <input id="gender"></input></p>
+                <div class="saveDetails">
+                    <button id="saveDetails" onclick="saveMyDetails()">SAVE</button>
+                </div>
+            </div>
+
+            <script>
+                function saveMyDetails() {
+
+                    const user_name = sessionStorage.getItem('current_user');
+                    const usrNam = JSON.parse(user_name);
+                   var todoitems = usrNam.todo_items;
+                   var password = usrNam.pass;
+
+                    let Fname = document.getElementById('firstName').value;
+               
+                    if (Fname != "") {
+                        var firstName = Fname;
+                    }else {
+                        var firstName = usrNam.fName;
+                       
+                    }
+
+                    let Lname = document.getElementById('lastName').value;
+                    if (Lname != "") {
+                        var lastName = Lname;
+                    }else{
+                        var lastName = usrNam.lName;
+                    }
+
+                    let Email = document.getElementById('userEmail').value;
+                    if (Email != "") {
+                        var emailAddress = Email;
+                    }else{
+                        var emailAddress = usrNam.eadd;
+                    }
+
+                    let Gender = document.getElementById('gender').value;
+                    if (Gender != "") {
+                        var updatedGender = document.getElementById('gender').value;
+                    }else{
+                        var updatedGender = usrNam.gen;
+                    }
+
+                   
+                    var obj = {
+                        fName: firstName,
+                        lName: lastName,
+                        eadd: emailAddress,
+                        gen: updatedGender,
+                        todo_items:todoitems,
+                        pass: password
+                    }
+
+                    console.log(obj);
+
+                    new_obj = JSON.stringify(obj);
+                    sessionStorage.setItem('current_user', new_obj);
+                    location.reload();
+                }
+            </script>
+
+
+        </div>
+    </div>
+
+
+
+    <script src="/Project_1/dist/js/profile.js"></script>
 </body>
-
-
-
-<script>
-  window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-          var img = document.querySelector('img');  // $('img')[0]
-          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
-          img.onload = imageIsLoaded;
-      }
-  });
-});
-
-function imageIsLoaded(){
-
-}
-</script>
 
 </html>

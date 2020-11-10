@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+     /* background-color:#2F4F4F; */
+}
+.header{
+    height: 60px;
+    width: 100vw;
+    background-color:#e6be8a;
+    text-align: center;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1{
+    margin: 0;
+    font-size: 40px;
+    color:  #ffffff;
+    letter-spacing: 3px;
+    padding: 20px;
+    /* border: solid white 2px; */
+    
+}
+ 
+.header button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: white;
+    font-size: 40px;
+   padding-right: 40px;
+}
+
+.upperBackground{
+    height: 100vh;
+    width: 100vw;
+    /* background: url('/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg'); */
+    background-size: cover;
+    background-position: center;
+
+}
+   
+.profilesection{
+    background: linear-gradient(rgba(255,255,255,0),rgba(230,190,138,0.7));
+    position: relative;
+    top: 270px;
+}
+.display_picture{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    top: -70px;
+    border: white solid 10px;
+    opacity: 1;
+}
+
+.dp{
+    text-align: center;
+}
+
+ .main_form{
+    /* border: solid #2F4F4F 1px; */
+    width: 1200px;
+    height: 450px;
+    box-shadow: 20px 20px 50px   black;
+    position: relative;
+    top: -60px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    text-align: center;
+    padding:6px;
+    
+}
+
+.upperBackground .main_form span{
+    color: #2F4F4F;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.main_form p {
+    color: black;
+    font-size: 28px;
+   margin-top: 50px;
+   
+
+}
+
+.main_form input{
+    font-size: 28px;
+    width: 60%;
+    background-color: transparent;
+    border: none;
+    
+}
+
+::placeholder{
+    color: #2F4F4F;
+    font-weight: bold;
+}
+
+ .saveDetails {
+    width:400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.saveDetails button{
+    width: 150px;
+    font-size: 18px;
+    padding: 15px;
+    word-wrap: normal;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    background-color: #e6be8a;
+    color:black ;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.saveDetails button:hover{
+    background-color: #421C52;;
+    color: white;
+    border: solid white 5px;
+   
+}

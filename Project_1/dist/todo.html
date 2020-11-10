@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Project_1/dist/css/todo.css">
+
+</head>
+
+<body >
+    <section class="head">
+        <div id="myDIV" class="header">
+            <h2>TO-DO</h2>
+            <input type="text" id="myInput" placeholder="Task...">
+            <button onclick="parent.location = 'profile.html'">Go To Profile</button>
+            <span onclick="newElement()" id="add_button" class="addBtn">ADD</span>
+        </div>
+
+    </section>
+
+    <ul id="myUL">
+
+    </ul>
+
+    <!-- <script>
+        
+        const sessionString = sessionStorage.getItem('current_user');
+        const sessionObject = JSON.parse(sessionString);
+        console.log(sessionObject);
+
+        var array_to_load = sessionObject.todo_items;
+
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("span");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
+
+
+        function loadMyPrevious() {
+            for (z = 0; z < array_to_load.length; z++) {
+                var li = document.createElement("li");
+                var input_value = array_to_load[z];
+                span.appendChild(txt);
+                li.appendChild(span);
+            }
+        }
+
+    </script> -->
+   
+    <script src="/Project_1/dist/js/todo.js"></script>
+
+</body>
+
+</html>
