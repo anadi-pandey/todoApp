@@ -19,7 +19,7 @@ formin.addEventListener('submit', (e) => {
                 set_Session(i);
                 alert("Logged in");
                 // window.location(profile.html);
-            } else {
+            } else{
                 e.preventDefault();
                 alert("Wrong Login Credentials");
             }
@@ -29,6 +29,9 @@ formin.addEventListener('submit', (e) => {
                 console.log(getDataArray[dataIN]);
                 sessionStorage.setItem('current_user', dataIN);
             }
+        }else{
+            e.preventDefault();
+            alert("Wrong Credentials");
         }
 
     }
