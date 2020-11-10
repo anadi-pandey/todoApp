@@ -125,17 +125,18 @@ ul li.Completed{
 
 .header button{
     position: absolute;
-    right: 50px;
+    left: 0;
     top: 10%;
-    width: 280px;
+    width: 180px;
     background-color: white;
     color: #421C52;
-    padding: 16px 20px;
+    padding: 10px;
     border: none;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     opacity: 0.8;
+    border-radius: 0 20px 20px 0;
 }
 
 input {
@@ -192,7 +193,7 @@ font-size: 16px;
   opacity: 0.8;
   position: fixed;
   bottom: 23px;
-  right: 28px;
+  right: 44%;
   width: 280px;
 }
 
@@ -201,7 +202,7 @@ font-size: 16px;
   display: none;
   position: fixed;
   bottom: 0;
-  right: 15px;
+  right: 26%;
   /* border: 3px solid #f1f1f1; */
   z-index: 9;
   border-radius: 10px;
@@ -258,4 +259,11 @@ font-size: 16px;
     width: 400px;
     background-color: #dcdcdc;
     color:#421C52;
+}
+
+#sign_out{
+    position: absolute;
+left: 90%;
+
+border-radius: 20px 0 0 20px;
 }
