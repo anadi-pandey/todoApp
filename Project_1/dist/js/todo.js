@@ -244,3 +244,8 @@ function push_in_local() {
 }
 
 
+document.getElementById('sign_out').addEventListener('click',function(){
+    push_in_local();
+    sessionStorage.clear();
+    window.location = "index.html";
+})
