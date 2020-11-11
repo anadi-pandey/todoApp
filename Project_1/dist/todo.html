@@ -6,34 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/todo.css">
-    
+
 </head>
 
 <body>
-   
+
     <section class="head">
         <div id="myDIV" class="header">
             <h2>TO-DO</h2>
             <input type="text" id="myInput" placeholder="Task...">
-            <button id="sign_out" >SIGN OUT</button>
+            <button id="sign_out">SIGN OUT</button>
             <button onclick="parent.location = 'profile.html'">PROFILE</button>
             <span onclick="newElement()" id="add_button" class="addBtn">ADD</span>
         </div>
 
     </section>
-    <div>
-        <p  style="color: aliceblue;width: 800px;font-size: larger;margin-left: auto;margin-right: auto;">
-            Click On the tasks to mark completion.
-            Use the 'x' to delete the tasks and 
-            set reminders using the button present in bottom right corner
-        </p>
+    <div id="font_size">
+        <div>
+            <p> Custom font-size <br>
+                <a href="#" id="size-22" >22</a>
+                <a href="#" id="size-28" >28</a>
+                <a href="#" id="size-32" >32</a>
+            </p>
+        </div>
+
+        <div>
+            <p style="color: aliceblue;">
+                Click On the tasks to mark completion.
+                Use the 'x' to delete the tasks and
+                <br> Set reminders using the button present at the bottom<br>
+            </p>
+        </div>
+
     </div>
 
     <ul id="myUL">
 
     </ul>
 
-   
+
     <!-- <script>
         
         const sessionString = sessionStorage.getItem('current_user');
@@ -72,7 +83,7 @@
 
     <div class="form-popup" id="myForm">
         <script src="./js/dashboard.js"></script>
-        
+
         <div class="form-container">
 
             <h1>Set Reminders</h1>
@@ -90,7 +101,7 @@
         </div>
 
     </div>
-    
+
 
     <script>
 
@@ -106,9 +117,13 @@
             }
         }
 
+
+        
+
+
     </script>
 
-<script defer src="./js/reminders.js"></script>
+    <script defer src="./js/reminders.js"></script>
 </body>
 
 </html>
