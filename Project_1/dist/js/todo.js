@@ -84,6 +84,8 @@ function push_in_session(arr) {
 
     if (in_the_session.todo_items[0] == "No Items Present") {
         in_the_session.todo_items.splice(0, 1);
+      
+
     } else {
 
         console.log(in_the_session);
@@ -93,7 +95,7 @@ function push_in_session(arr) {
 
     }
 
-
+    
 }
 
 const user_Name_Object = localStorage.getItem('user');
@@ -211,7 +213,7 @@ function push_in_local() {
 }
 
 
-document.getElementById('sign_out').addEventListener('click',function(){
+document.getElementById('sign_out').addEventListener('click', function () {
     push_in_local();
     sessionStorage.clear();
     window.location = "index.html";
