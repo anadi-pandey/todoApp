@@ -1,5 +1,26 @@
 var Deadline_Array = [];
 
+// Custom font size
+
+var size22 = makeSizer(22);
+var size28 = makeSizer(28);
+var size32 = makeSizer(32);
+
+document.getElementById('size-22').onclick = size22;
+document.getElementById('size-28').onclick = size28;
+document.getElementById('size-32').onclick = size32;
+
+function makeSizer(size) {
+    console.log(size);
+    return function () {
+        console.log(size+'px');
+        document.body.style.fontSize = size+'px';
+    };
+}
+
+
+
+
 check_reminder();
 
 document.getElementById('Push').addEventListener('click', function () {
