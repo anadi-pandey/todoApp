@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In & Sign up</title>
     <link rel="stylesheet" href="./css/main.css">
-    <script src="https://kit.fontawesome.com/22c43fcaa8.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/19266bcada.js" crossorigin="anonymous"></script>
     <script defer src="./js/validation.js"></script>
-    
-   
+
+
 </head>
 
 <body>
@@ -17,9 +17,9 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                
+
                 <form action="./todo.html" id="formIN" class="sign-in-form" method="GET">
-                
+
 
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
@@ -33,7 +33,7 @@
                     </div>
 
                     <input type="submit" value="Login" id="login_to" class="btn solid ">
-                    
+
 
                     <p class="social-text">Or Sign in with social platforms</p>
 
@@ -41,13 +41,13 @@
 
 
                 <form action=" " id="form" class="sign-up-form" method="GET">
-                   
-                   <div class="headimg">
-                    <h2 class="title">Sign Up</h2>
-                    <img class="displayPicture" id="myImg">
-                   </div> 
-              
-                    
+
+                    <div class="headimg">
+                        <h2 class="title">Sign Up</h2>
+                        <img class="displayPicture" id="myImg">
+                    </div>
+
+
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -75,27 +75,26 @@
                     </div>
 
                     <div class="input-field">
-                        <select id="gender" name="Gender" >
-                        <option value="Not Selected">Select Gender</option>
-                        <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                          <option value="Other">Other</option>
+                        <select id="gender" name="Gender">
+                            <option value="Not Selected">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
-                      </div>
-                     
-                      <div class="dp">
-                        <label class="file">
-                            <input type="file" id="file" aria-label="File browser example">
-                            <span class="file-custom"></span>
-                          </label>
-                         
-                      </div>
-                     
-                      <div id="error" style="color: red; font-size: 15px;"></div>
+                    </div>
+
+                    <div class="dp">
+                        <label for="profileimg"></label><br>
+
+                        <input type="file" id="profileimg" name="profile-img" onchange="changeFile()" required>
+
+                    </div>
+
+                    <div id="error" style="color: red; font-size: 15px;"></div>
 
                     <input id="signUP" type="submit" value="Sign Up" class="btn solid ">
 
-                   
+
                 </form>
 
             </div>
@@ -125,12 +124,12 @@
         </div>
     </div>
     <script src="./js/main.js"></script>
-  
+
     <script defer src="./js/signUpIn.js"></script>
 
     <!-- <script src="/Project_1/dist/js/profile.js"></script> -->
-   
-    
+
+
 </body>
 
 </html>

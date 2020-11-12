@@ -26,12 +26,23 @@ window.addEventListener('load', function () {
         if (this.files && this.files[0]) {
             var img = document.querySelector('img');  // $('img')[0]
             img.src = URL.createObjectURL(this.files[0]); // set src to blob url
-            img.onload = imageIsLoaded;
-            imgUrl = URL.createObjectURL(this.files[0]);
-           
+            img.onload = imageIsLoaded;          
         }
     });
 });
+
+function changeFile(){
+    let changePicInput = document.getElementById("profileimg");
+    let reader = new FileReader();
+    reader.readAsDataURL(changePicInput.files[0]);
+    reader.onloadend = function(event) {
+        let Image = document.getElementById("profileimg");
+        Image.src = event.target.result;    
+        console.log(Image); 
+        imgUrl=Image.src;
+        console.log(imgUrl);
+    }
+}
 
 
 function imageIsLoaded() {
@@ -50,10 +61,10 @@ form.addEventListener('submit', (e) => {
     var local_values = localStorage.getItem('user');
     if(local_values != null)
     {
-        var local_array = JSON.stringify(local_values);
+        var local_array = JSON.parse(local_values);
 
         for (let i = 0; i < local_array.length; i++) {
-            let key = local_array[i];
+            let key = local_array[i].eadd;
             if (email.value.toLowerCase() == key) {
                 checkExist++;
                 messages.push('Already Registered')
@@ -108,6 +119,7 @@ form.addEventListener('submit', (e) => {
 
 })
 
+  
 
 // Adding user information in the local storage
 

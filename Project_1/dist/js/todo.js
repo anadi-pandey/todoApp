@@ -87,18 +87,20 @@ function push_in_session(arr) {
 
     if (in_the_session.todo_items[0] == "No Items Present") {
         in_the_session.todo_items.splice(0, 1);
-      
-
-    } else {
+        var move = JSON.stringify(in_the_session);
+        sessionStorage.setItem('current_user',move)
+        window.location.reload();
+    } else{
 
         console.log(in_the_session);
         var move = JSON.stringify(in_the_session);
         sessionStorage.setItem('current_user', move);
+       
 
 
     }
 
-    
+
 }
 
 const user_Name_Object = localStorage.getItem('user');

@@ -7,7 +7,7 @@ document.getElementById('gender').placeholder = userNam.gen;
 // document.getElementById
 
 
-// document.querySelector(".display_picture").src = userName.img;
+document.querySelector(".display_picture").src = userNam.img;
 console.log(userNam);
 
 // loading picture

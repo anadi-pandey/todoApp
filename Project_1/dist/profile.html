@@ -22,7 +22,8 @@
 
         <div class="profilesection">
             <div class="dp">
-                <img class="display_picture" id="myImg" src="./img/img_avatar.png" alt="">
+                
+                <img class="display_picture" id="myImg" alt="">
             </div>
             <div class="main_form">
                 <p> FIRST NAME : <input id="firstName"></input> </p>
@@ -40,55 +41,62 @@
             </div>
 
             <script>
+
+               
+
+
                 function saveMyDetails() {
 
                     const user_name = sessionStorage.getItem('current_user');
                     const usrNam = JSON.parse(user_name);
-                   var todoitems = usrNam.todo_items;
-                //    Added recently -
-                   var remind_them = usrNam.remind_user;
-                   var password = usrNam.pass;
+                    var todoitems = usrNam.todo_items;
+                    //    Added recently -
+                    var remind_them = usrNam.remind_user;
+                    var password = usrNam.pass;
+                    var image_src = usrNam.img;
+
+
 
                     let Fname = document.getElementById('firstName').value;
-               
+
                     if (Fname != "") {
                         var firstName = Fname;
-                    }else {
+                    } else {
                         var firstName = usrNam.fName;
-                       
+
                     }
 
                     let Lname = document.getElementById('lastName').value;
                     if (Lname != "") {
                         var lastName = Lname;
-                    }else{
+                    } else {
                         var lastName = usrNam.lName;
                     }
 
                     let Email = document.getElementById('userEmail').value;
                     if (Email != "") {
                         var emailAddress = Email;
-                    }else{
+                    } else {
                         var emailAddress = usrNam.eadd;
                     }
 
                     let Gender = document.getElementById('gender').value;
                     if (Gender != "") {
                         var updatedGender = document.getElementById('gender').value;
-                    }else{
+                    } else {
                         var updatedGender = usrNam.gen;
                     }
 
-                   
+
                     var obj = {
                         fName: firstName,
                         lName: lastName,
                         eadd: emailAddress,
                         gen: updatedGender,
-                        todo_items:todoitems,
+                        todo_items: todoitems,
                         pass: password,
-                        // Added recently-
-                        remind_user:remind_them
+                        img: image_src,
+                        remind_user: remind_them
                     }
 
                     console.log(obj);
