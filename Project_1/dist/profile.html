@@ -18,11 +18,12 @@
         <button onclick="parent.location = 'todoBeta.html'">TO-DO</button>
     </div>
     <div class="upperBackground">
-        <!-- <img src="/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg" alt=""> -->
+        <!-- <img src="./img/superhero-wallpaper-deteched40.jpg" alt=""> -->
 
         <div class="profilesection">
             <div class="dp">
-                <div style="position: absolute;background-color: aliceblue; left: 680px; top: 100px;">
+                <div id="divRotate"
+                    style="position: absolute;background-color: transparent; left: 680px; border: solid 10px #e6be8a; border-radius: 10px;padding: 2px; ">
                     <label for="profileimg" style="color: black;">Upload Another</label><br>
 
                     <input style="display: none;" type="file" id="profileimg" name="profile-img" onchange="changeFile()"
@@ -150,6 +151,13 @@
                         window.location = "index.html";
                     }
                 })
+
+                // const el = document.querySelector("body");
+
+                // el.addEventListener("mousemove", (e) => {
+                //     // el.style.backgroundPositionX = -(e.offsetX-) + "px";
+                //     el.style.backgroundPositionY = -(e.offsetY) + "px";
+                // });
             </script>
 
 
