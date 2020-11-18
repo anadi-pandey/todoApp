@@ -4,7 +4,7 @@ var completedTasksHolder = document.getElementById("completed-tasks");
 var normalTaskHolder = document.getElementById("normalList");
 var urgentTaskHolder = document.getElementById("urgentList");
 var importantTaskHolder = document.getElementById("importantList");
-
+var rangeTaskHolder = document.getElementById("DateRangeItems");
 populateTodo();
 document.getElementById("Add").addEventListener('click', function () {
 
@@ -207,7 +207,7 @@ function populateTodo() {
 
         var newItem = listItem;
 
-      
+
 
     }
 
@@ -546,13 +546,28 @@ function showMyCompleted() {
         x.style.display = "none";
     }
 
+    // var y = document.getElementById("CategoryDiv");
+    // if(y.style.display === "block"){
+    // y.style.display = "none";
+    // }
+
     document.getElementById("incompletedTask").classList.toggle("show");
+}
+
+function showMyDataRange(){
+
+    var z = document.getElementById("dateTasks");
+    if (z.style.display === "none") {
+        z.style.display = "block";
+    } else {
+        z.style.display = "none";
+    }
 }
 
 
 populateCategory();
 
-function showMyCategory(){
+function showMyCategory() {
     var x = document.getElementById("CategoryDiv");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -560,32 +575,37 @@ function showMyCategory(){
         x.style.display = "none";
     }
 
+    // var y = document.getElementById("completedTasks");
+    // if(y.style.display === "block"){
+    //     y.style.display = "none";
+    // }
+
     document.getElementById("incompletedTask").classList.toggle("show");
 }
 
-function populateCategory(){
+function populateCategory() {
     // var collection = document.querySelector("li");
-   
-    var spanCategoryItem = document.createElement("span");
+
+
     var SessionobjForCategory = sessionStorage.getItem('current_user');
     var SessionarrayForCategory = JSON.parse(SessionobjForCategory);
     var len = SessionarrayForCategory.todo_items.length;
-  
+
     console.log(len);
-    
-     
-    for(k=0;k<len;k++){
+
+
+    for (k = 0; k < len; k++) {
         console.log(k);
-       console.log( SessionarrayForCategory.todo_items[k].Category);
-        if(SessionarrayForCategory.todo_items[k].Category == " Urgent"){
+        console.log(SessionarrayForCategory.todo_items[k].Category);
+        if (SessionarrayForCategory.todo_items[k].Category == " Urgent") {
             var categoryItem = document.createElement("li");
             categoryItem.innerText = SessionarrayForCategory.todo_items[k].Title;
             console.log(categoryItem);
-        console.log("I am in the loop ");
-        urgentTask(categoryItem);
+            console.log("I am in the loop ");
+            urgentTask(categoryItem);
         }
 
-        if(SessionarrayForCategory.todo_items[k].Category  == "Important"){
+        if (SessionarrayForCategory.todo_items[k].Category == "Important") {
             var categoryItem = document.createElement("li");
             categoryItem.innerText = SessionarrayForCategory.todo_items[k].Title;
             console.log(categoryItem);
@@ -593,7 +613,7 @@ function populateCategory(){
             console.log("I am in the loop ");
         }
 
-        if(SessionarrayForCategory.todo_items[k].Category == "Normal"){
+        if (SessionarrayForCategory.todo_items[k].Category == "Normal") {
             var categoryItem = document.createElement("li");
             categoryItem.innerText = SessionarrayForCategory.todo_items[k].Title;
             console.log(categoryItem);
@@ -625,33 +645,85 @@ function importantTask(ImportantList) {
 
 pushDeadline();
 
-function pushDeadline(){
+function pushDeadline() {
     var bringIt = sessionStorage.getItem('current_user');
     var bringArray = JSON.parse(bringIt);
     var limit = bringArray.todo_items.length;
     var today = new Date();
-    
-    
+
+
 
     var dd = today.getDate();
-    var mm = today.getMonth()+1; 
+    var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
 
-   
-    
 
-    today = yyyy+'-'+mm+'-'+dd;
+
+
+    today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
 
-    for(j=0;j<limit;j++){
-       
-        if(bringArray.todo_items[j].Deadline == today){
+    for (j = 0; j < limit; j++) {
+
+        if (bringArray.todo_items[j].Deadline == today) {
             alert(bringArray.todo_items[j].Title + " has today's deadline");
         }
-       
+
     }
 
     console.log(limit);
+}
+
+
+
+function populateDateRange() {
+    var gotStart = document.getElementById("startDate").value;
+    var gotEnd = document.getElementById("endDate").value;
+    var g1 = new Date(gotStart);
+    var g2 = new Date(gotEnd);
+
+    console.log(g1.getTime());
+    console.log(g2.getTime());
+
+    var sesObject = sessionStorage.getItem('current_user');
+    var sesArray = JSON.parse(sesObject);
+    var upperLimit = sesArray.todo_items.length;
+
+    var currentDate = new Date();
+    console.log((currentDate.getTime()));
+
+
+
+    for (i = 0; i < upperLimit; i++) {
+
+        var deadlineUser = sesArray.todo_items[i].Deadline;
+        var g = new Date(deadlineUser);
+
+        if (g == "") {
+            continue;
+        }
+
+        if (g.getTime() > g1.getTime() && g.getTime() < g2.getTime()) {
+
+            var rangeItem = document.createElement("li");
+            rangeItem.innerText = sesArray.todo_items[i].Title;
+            console.log(rangeItem);
+            rangeTask(rangeItem);
+            console.log("verfified");
+
+        }
+    }
+
+
+}
+
+
+function rangeTask(rangeItem){
+    
+
+var itemN = rangeItem;
+console.log(itemN);
+rangeTaskHolder.appendChild(itemN);
 }
 
 document.getElementById('signoutBtn').addEventListener('click', function () {

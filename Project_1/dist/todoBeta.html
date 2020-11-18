@@ -36,7 +36,7 @@
             <span>Sort By:</span>
             <button onclick="showMyCategory()">Category</button>
             <button onclick="showMyCompleted()">Completed</button>
-            <button>Date Range</button>
+            <button  onclick="showMyDataRange()">Date Range</button>
         </div>
 
     </div>
@@ -83,7 +83,7 @@
 
             <h2>Todo</h2>
             <ul id="incomplete-tasks">
-              
+
             </ul>
         </div>
 
@@ -150,7 +150,33 @@
         </div>
     </div>
 
+    <div id="dateTasks" class="dateRange" style="display: none;">
+        <form action="">
+            <h2>Todo In Date Range</h2>
+            <div class="toFlex">
 
+                <div>
+                    <h3>Start Date</h3>
+                    <input type="date" id="startDate" name="deadline">
+                </div>
+
+                <div>
+                    <h3>End Date</h3>
+                    <input type="date" id="endDate" name="deadline">
+                </div>
+                <div>
+                    <button type="button" onclick="populateDateRange()">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+        <div id="HammY">
+            <ul id="DateRangeItems">
+                <li style="display: none;">No task yet </li>
+            </ul>
+        </div>
+    </div>
 
 
 
@@ -158,13 +184,13 @@
 
 
     <script defer type="text/javascript" src="./ todoBeta.js"></script>
-<script>
-      window.addEventListener("DOMContentLoaded", function () {
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
             if (sessionStorage.getItem("current_user") === null) {
                 window.location = "index.html";
             }
         })
-</script>
+    </script>
 
 
 </body>
