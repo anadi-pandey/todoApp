@@ -7,33 +7,44 @@ const formin = document.getElementById("formIN");
 
 
 formin.addEventListener('submit', (e) => {
-
+    var validity = 0;
     let getData = localStorage.getItem('user');
     console.log(getData);
     let getDataArray = JSON.parse(getData);
     console.log(getDataArray);
     for (i = 0; i < getDataArray.length; i++) {
         if (getDataArray[i].eadd == recEmail.value) {
-
-            if (getDataArray[i].pass == recPass.value) {
-                set_Session(i);
-                alert("Logged in");
-                // window.location(profile.html);
-            } else{
-                e.preventDefault();
-                alert("Wrong Login Credentials");
-            }
-
-            function set_Session(dataToLoad) {
-                dataIN = JSON.stringify(getDataArray[dataToLoad]);
-                console.log(getDataArray[dataIN]);
-                sessionStorage.setItem('current_user', dataIN);
-            }
+        checkPassword(i);
+        validity++;
         }
-
+        
     }
 
-})
+
+    function checkPassword(k){
+        if (getDataArray[k].pass == recPass.value) {
+            set_Session(k);
+            alert("Logged IN ");
+            // window.location(profile.html);
+        } else {
+            e.preventDefault();
+            alert("Wrong Login Credentials");
+        }
+
+        function set_Session(dataToLoad) {
+            dataIN = JSON.stringify(getDataArray[dataToLoad]);
+            console.log(getDataArray[dataIN]);
+            sessionStorage.setItem('current_user', dataIN);
+        }
+    }
+
+    if(validity == 0){
+        alert("User Not Registered");
+        e.preventDefault();
+    }
+       
+        
+    })
 
 
 

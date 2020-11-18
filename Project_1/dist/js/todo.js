@@ -53,6 +53,8 @@ function newElement() {
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
 
+    
+
 
     if (inputValue === '') {
         alert("You must write something!");
@@ -87,8 +89,9 @@ function push_in_session(arr) {
 
     if (in_the_session.todo_items[0] == "No Items Present") {
         in_the_session.todo_items.splice(0, 1);
-      
-
+        var move = JSON.stringify(in_the_session);
+        sessionStorage.setItem('current_user', move)
+        window.location.reload();
     } else {
 
         console.log(in_the_session);
@@ -96,9 +99,10 @@ function push_in_session(arr) {
         sessionStorage.setItem('current_user', move);
 
 
+
     }
 
-    
+
 }
 
 const user_Name_Object = localStorage.getItem('user');
@@ -214,6 +218,55 @@ function push_in_local() {
     var ready = JSON.stringify(local_array);
     localStorage.setItem('user', ready);
 }
+
+var done_array = [];
+var done_array_filtered = [];
+var f=0;
+var position = 0;
+list.addEventListener('click', function (ev) {
+    var done = document.getElementsByClassName('checked');
+    console.log(done);
+    completeArray(done);
+})
+
+function completeArray(doneThing) {
+    for (e = 0; e < doneThing.length; e++) {
+        var check = (doneThing[e].outerText).substring(0, ((doneThing[e].outerText).length - 2));
+        console.log(check);
+        populateArray(check);   
+    }
+
+        function populateArray(borrowed)
+        {
+            console.log(borrowed);
+            for(l=0;l<done_array.length;l++)
+            {
+                if(done_array.length == 0){
+                    done_array[0] = borrowed;
+                    console.log(done_array);
+                    f++;
+
+                }
+                if(done_array[l] !== borrowed)
+                {
+                    f++;
+                    console.log(f);
+                }
+                if(f == done_array.length-1)
+                {
+                    done_array[position] = borrowed;
+                    position++;
+                    console.log(done_array);
+                }
+
+            }
+        }
+
+
+}
+
+
+
 
 
 document.getElementById('sign_out').addEventListener('click', function () {
