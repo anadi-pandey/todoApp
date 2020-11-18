@@ -324,3 +324,38 @@ body{
   padding: 20px;
   border-radius: 10px;
 }
+
+.dateRange{
+  width: 1200px;
+  border: solid #e6be8a 1px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.toFlex{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.toFlex button{
+  border: #e6be8a solid 2px;
+  background-color: #421C52;
+  width: 100px;
+  border-radius: 5px;
+  position: relative;
+  top: 40px;
+}
+
+.dateRange li{
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+  color: white;
+  border: solid white 2px;
+  text-align: center;
+}
