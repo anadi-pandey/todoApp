@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
+html {
+    scroll-behavior: smooth;
+  }
 body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins',sans-serif;
-    background-color:aliceblue;
      /* background-color:#2F4F4F; */
+     background: url('../img/scott-webb-wsMwDxF8SKA-unsplash.jpg');
+
+     /* background: url('/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg'); */
+     background-size: cover;
 }
 .header{
     height: 60px;
@@ -21,6 +27,7 @@ body{
 
 .header h1{
     margin: 0;
+    font-weight: 500;
     font-size: 40px;
     color:  #ffffff;
     letter-spacing: 3px;
@@ -42,24 +49,23 @@ body{
 .upperBackground{
     height: 100vh;
     width: 100vw;
-    /* background: url('/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg'); */
-    background-size: cover;
-    background-position: center;
+   
+     /* background-position: center; */
 
 }
    
-.profilesection{
+/* .profilesection{
     background: linear-gradient(rgba(255,255,255,0),rgba(230,190,138,0.7));
     position: relative;
     top: 270px;
-}
+} */
 .display_picture{
     height: 200px;
     width: 200px;
     border-radius: 50%;
     position: relative;
-    top: -70px;
-    border: white solid 10px;
+    /* top: -70px; */
+    border:#e6be8a solid 10px;
     opacity: 1;
 }
 
@@ -75,14 +81,17 @@ body{
     /* border: solid #2F4F4F 1px; */
     width: 1200px;
     height: 450px;
-    box-shadow: 20px 20px 50px   black;
+    /* box-shadow: 20px 20px 50px   black; */
     position: relative;
-    top: -60px;
+    /* top: -60px; */
     margin-right: auto;
     margin-left: auto;
-    background-color: white;
+
+    border-radius: 10px;
+    border: solid #e6be8a 6px;
     text-align: center;
     padding:6px;
+    top: 30px;
     
 }
 
@@ -96,14 +105,14 @@ body{
 
 .main_form p {
     color: black;
-    font-size: 28px;
+    font-size: 24px;
    margin-top: 50px;
    
 
 }
 
 .main_form input{
-    font-size: 28px;
+    font-size: 24px;
     width: 60%;
     background-color: transparent;
     border: none;
@@ -140,4 +149,15 @@ body{
     color: white;
     border: solid white 5px;
    
+}
+.profilesection{
+    position: relative;
+    top: 100px;
+  
+}
+
+#divRotate{
+   
+    position: relative;
+    top: 80px;
 }
