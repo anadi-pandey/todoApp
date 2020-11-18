@@ -15,15 +15,21 @@
         <h1>
             Profile
         </h1>
-        <button onclick="parent.location = 'todo.html'">TO-DO</button>
+        <button onclick="parent.location = 'todoBeta.html'">TO-DO</button>
     </div>
     <div class="upperBackground">
         <!-- <img src="/Project_1/dist/img/lauren-sauder-6GPBVYLapYQ-unsplash.jpg" alt=""> -->
 
         <div class="profilesection">
             <div class="dp">
-                
+                <div style="position: absolute;background-color: aliceblue; left: 680px; top: 100px;">
+                    <label for="profileimg" style="color: black;">Upload Another</label><br>
+
+                    <input style="display: none;" type="file" id="profileimg" name="profile-img" onchange="changeFile()"
+                        required>
+                </div>
                 <img class="display_picture" id="myImg" alt="">
+
             </div>
             <div class="main_form">
                 <p> FIRST NAME : <input id="firstName"></input> </p>
@@ -41,8 +47,42 @@
             </div>
 
             <script>
+                function changeFile() {
+                    let changePicInput = document.getElementById("profileimg");
+                    let reader = new FileReader();
+                    reader.readAsDataURL(changePicInput.files[0]);
+                    reader.onloadend = function (event) {
+                        let Image = document.getElementById("profileimg");
+                        Image.src = event.target.result;
+                        console.log(Image);
+                        imgUrl = Image.src;
+                        console.log(imgUrl);
 
-               
+                        const user_load = sessionStorage.getItem('current_user');
+                        const ham = JSON.parse(user_load);
+                        console.log(ham);
+                        ham.img = imgUrl;
+                        new_session = JSON.stringify(ham);
+                        console.log(new_session);
+                        sessionStorage.setItem('current_user', new_session);
+                    }
+                }
+                window.addEventListener('load', function () {
+                    document.querySelector('input[type="file"]').addEventListener('change', function () {
+                        if (this.files && this.files[0]) {
+                            var img = document.querySelector('img');  // $('img')[0]
+                            img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                            img.onload = imageIsLoaded;
+
+
+                        }
+                    });
+                });
+
+
+                function imageIsLoaded() {
+
+                }
 
 
                 function saveMyDetails() {
@@ -105,6 +145,11 @@
                     sessionStorage.setItem('current_user', new_obj);
                     location.reload();
                 }
+                window.addEventListener("DOMContentLoaded", function () {
+                    if (sessionStorage.getItem("current_user") === null) {
+                        window.location = "index.html";
+                    }
+                })
             </script>
 
 

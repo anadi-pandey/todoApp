@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <link rel="stylesheet" href="todoBeta.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <button onclick="parent.location = 'profile.html'" id="profileBtn">Profile</button>
+        </div>
+        <div>
+            <h1>
+                TO-DO MANAGER
+            </h1>
+        </div>
+        <div>
+            <button id="signoutBtn">Sign Out</button>
+        </div>
+    </header>
+    <div id="font_size">
+        <div>
+            <p> Custom font-size <br>
+                <a href="#" id="size-22">22</a>
+                <a href="#" id="size-28">28</a>
+                <a href="#" id="size-32">32</a>
+            </p>
+        </div>
+
+        <div>
+            <span>Sort By:</span>
+            <button onclick="showMyCategory()">Category</button>
+            <button onclick="showMyCompleted()">Completed</button>
+            <button>Date Range</button>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="fillForm" id="hideOn">
+
+
+            <div>
+                <p>Please select your category:</p>
+                <input type="radio" id="important" name="category" value="Important">
+                <label for="urgent">Important</label><br>
+                <input type="radio" id="urgent" name="category" value=" Urgent">
+                <label for="normal">Urgent</label><br>
+                <input type="radio" id="normal" name="category" value="Normal">
+                <label for="normal">Normal</label>
+
+                <div style="margin-top: 20px;">
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" id="deadline" name="deadline">
+                </div>
+
+            </div>
+
+            <div class="secondPart">
+                <p>Chose if the todo stays Public, <br>
+                    Deadlines work when reminders are checked</p>
+                <div>
+                    <label for="public">Public</label>
+                    <input type="checkbox" id="public">
+                </div>
+                <div>
+                    <label for="Reminder">Reminder</label>
+                    <input type="checkbox" id="Reminder">
+                </div>
+
+                <label for="new-task">Add Item</label><input id="new-task" type="text"><button id="Add">Add</button>
+            </div>
+
+
+
+        </div>
+
+        <div id="incompletedTask" class="customsize">
+
+            <h2>Todo</h2>
+            <ul id="incomplete-tasks">
+              
+            </ul>
+        </div>
+
+        <div style="display: none;" id="completedTasks">
+            <h2>Completed</h2>
+            <ul id="completed-tasks">
+                <li style="display: none;">No task yet </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="CategoryDiv" style="display: none;" class="Category">
+
+        <div class="Normal">
+            <h2>Normal</h2>
+            <ul id="normalList">
+                <li style="display: none;">No task yet </li>
+            </ul>
+        </div>
+        <div class="Urgent">
+            <h2>Urgent</h2>
+            <ul id="urgentList">
+                <li style="display: none;">No task yet </li>
+            </ul>
+        </div>
+        <div class="Important">
+            <h2>Important</h2>
+            <ul id="importantList">
+                <li style="display: none;">No task yet </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="openform">
+        <div>
+            <p>Please select your category:</p>
+            <input type="radio" id="popimportant" name="popcategory" value="Important">
+            <label for="urgent">Important</label><br>
+            <input type="radio" id="popurgent" name="popcategory" value=" Urgent">
+            <label for="normal">Urgent</label><br>
+            <input type="radio" id="popnormal" name="popcategory" value="Normal">
+            <label for="normal">Normal</label>
+        </div>
+
+        <div class="secondPart">
+
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="popdeadline" name="deadline">
+            <div>
+                <label for="public">Public</label>
+                <input type="checkbox" id="poppublic">
+            </div>
+            <div>
+                <label for="Reminder">Reminder</label>
+                <input type="checkbox" id="popReminder">
+            </div>
+
+            <label for="new-task">Change Title</label><input id="pop-new-task" type="text"><button
+                id="SaveMyChanges">Edit Done</button>
+
+            <button id="closeBtn" type="submit">Close</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script defer type="text/javascript" src="./ todoBeta.js"></script>
+<script>
+      window.addEventListener("DOMContentLoaded", function () {
+            if (sessionStorage.getItem("current_user") === null) {
+                window.location = "index.html";
+            }
+        })
+</script>
+
+
+</body>
+
+</html>

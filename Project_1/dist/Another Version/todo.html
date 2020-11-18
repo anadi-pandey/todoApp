@@ -24,9 +24,9 @@
     <div id="font_size">
         <div>
             <p> Custom font-size <br>
-                <a href="#" id="size-22" >22</a>
-                <a href="#" id="size-28" >28</a>
-                <a href="#" id="size-32" >32</a>
+                <a href="#" id="size-22">22</a>
+                <a href="#" id="size-28">28</a>
+                <a href="#" id="size-32">32</a>
             </p>
         </div>
 
@@ -44,6 +44,25 @@
 
     </ul>
 
+    <!-- <div class="Pending_Completion">
+        <div>
+            <ol style>
+                <li>Anadi</li>
+                <li>Bareen</li>
+            </ol>
+        </div>
+        <div>
+            <ol>
+                <li>
+                    just
+                </li>
+                <li>
+                    married
+                </li>
+            </ol>
+        </div>
+
+    </div> -->
 
     <!-- <script>
         
@@ -118,7 +137,11 @@
         }
 
 
-        
+        window.addEventListener("DOMContentLoaded", function () {
+            if (sessionStorage.getItem("current_user") === null) {
+                window.location = "index.html";
+            }
+        })
 
 
     </script>

@@ -295,3 +295,35 @@ border-radius: 20px 0 0 20px;
     font-size: 20px;
     color:aliceblue;
 }
+
+.Pending_Completion
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+ol{
+    width: 600px;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+ol li {
+    color:#421C52;
+    font-weight: 500;
+    cursor: crosshair;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background-color: #e6be8a;
+   
+    transition: 0.2s;
+    text-align: center;
+    list-style: none;
+    
+    user-select: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+} 

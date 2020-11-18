@@ -100,7 +100,7 @@ form.addEventListener('submit', (e) => {
     } else {
         messages.push('Password must contain atleast one digit')
     }
-    if (regEmailCheck.test(email.value) && checkExist == 0) {
+    if (regEmailCheck.test(email.value) && checkExist == 0||localStorage ==null) {
 
         console.log('Email validation done')
     }
@@ -131,7 +131,7 @@ function addUser() {
     let emailAdd = document.getElementById("emailAddr").value;
     let imgRef = imgUrl;
     let password = document.getElementById("conPassword").value;
-    let array = ["No Items Present"];
+    let array = [];
     let arrayRemind = ["No reminders yet"];
     var userObj = {
         fName: firstName,

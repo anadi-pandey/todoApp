@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/19266bcada.js" crossorigin="anonymous"></script>
     <script defer src="./js/validation.js"></script>
-
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
 
 </head>
 
@@ -18,7 +22,7 @@
         <div class="forms-container">
             <div class="signin-signup">
 
-                <form action="./todo.html" id="formIN" class="sign-in-form" method="GET">
+                <form action="todoBeta.html" id="formIN" class="sign-in-form" method="GET">
 
 
                     <h2 class="title">Sign in</h2>
