@@ -22,14 +22,16 @@
 
         <div class="profilesection">
             <div class="dp">
-                <div id="divRotate"
-                    style="position: absolute;background-color: transparent; left: 680px; border: solid 10px #e6be8a; border-radius: 10px;padding: 2px; ">
+                <div id="divRotate">
                     <label for="profileimg" style="color: black; cursor: pointer;">Upload Another</label><br>
 
                     <input style="display: none;" type="file" id="profileimg" name="profile-img" onchange="changeFile()"
                         required>
                 </div>
-                <img class="display_picture" id="myImg" alt="">
+                <div id="rotate">
+                    <img class="display_picture" id="myImg" alt="">
+                </div>
+             
 
             </div>
             <div class="main_form">
@@ -41,10 +43,19 @@
 
                 <p>EMAIL ADDRESS: <input id="userEmail"></input></p>
 
-                <p>GENDER: <input id="gender"></input></p>
+                <p>GENDER: <select id="gender" name="Gender">
+                    <option id="genderIntial" value="Not Selected">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select></p>
                 <div class="saveDetails">
                     <button style="cursor: pointer;" id="saveDetails" onclick="saveMyDetails()">SAVE</button>
                 </div>
+
+                
+
+
             </div>
 
             <script>
@@ -152,12 +163,6 @@
                     }
                 })
 
-                // const el = document.querySelector("body");
-
-                // el.addEventListener("mousemove", (e) => {
-                //     // el.style.backgroundPositionX = -(e.offsetX-) + "px";
-                //     el.style.backgroundPositionY = -(e.offsetY) + "px";
-                // });
             </script>
 
 
