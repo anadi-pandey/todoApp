@@ -6,14 +6,50 @@ var urgentTaskHolder = document.getElementById("urgentList");
 var importantTaskHolder = document.getElementById("importantList");
 var rangeTaskHolder = document.getElementById("DateRangeItems");
 populateTodo();
-document.getElementById("Add").addEventListener('click', function () {
+document.getElementById("Add").addEventListener('click', function (event) {
 
+
+    var deadlineSelected = document.getElementById("deadline").value;
+
+    console.log(deadlineSelected);
+    var Current_date = new Date();
+    var fT = new Date(deadlineSelected);
+
+ 
+
+    if(fT.getFullYear() >= Current_date.getFullYear())
+    {
+        if(fT.getMonth() >= Current_date.getMonth())
+        {
+            if(fT.getDate() >= Current_date.getDate())
+            {
+                var valueOfDate = true;
+                console.log(valueOfDate);
+            }
+        }
+    }
+    
+
+   
+    if(valueOfDate)
+    {
+
+    
     var categorySelected = "";
     var selPublic = false;
     var selReminder = false;
     var category = document.getElementsByName("category");
     var isPend = true;
     var isComp = false;
+
+    var taskString = document.getElementById("new-task").value;
+
+    if(taskString == ""){
+        document.getElementById("ErrorSpan").innerText = "Empty To-do"
+    }else{
+
+    
+    
 
     for (i = 0; i < category.length; i++) {
         if (category[i].checked) {
@@ -22,8 +58,7 @@ document.getElementById("Add").addEventListener('click', function () {
         }
     }
 
-    var deadlineSelected = document.getElementById("deadline").value;
-    console.log(deadlineSelected);
+    
 
 
 
@@ -40,8 +75,10 @@ document.getElementById("Add").addEventListener('click', function () {
     deleteButton.innerText = "Delete";
     deleteButton.className = "delete";
 
-    var taskString = document.getElementById("new-task").value;
+   
     label.innerText = taskString;
+
+   
     console.log(taskString);
 
     checkBox.type = "checkbox";
@@ -105,6 +142,13 @@ document.getElementById("Add").addEventListener('click', function () {
     sessionStorage.setItem('current_user', doneObj);
 
     addTask(listItem);
+    }
+}
+else{
+    // document.getElementById("").
+    console.log("Galat DAte");
+    document.getElementById("DeadlineSpan").innerText = "Wrong Input Date";
+}
 })
 
 
@@ -218,7 +262,15 @@ function populateTodo() {
 
 // ---------Click ability to close button-----------
 
+
+
+
+
 var dlete = document.getElementsByClassName("delete");
+
+
+
+
 var i;
 for (i = 0; i < dlete.length; i++) {
 
@@ -226,15 +278,46 @@ for (i = 0; i < dlete.length; i++) {
     console.log(i);
 
     dlete[i].onclick = function () {
+       
 
+        var getConfirmed = getConfirmation();
         var div = this.parentElement;
         var valueOfParent = this.parentNode;
-        deleteTask(valueOfParent);
-        // div.style.display = "none";
 
-        removeFromSession(valueOfParent);
+       
+
+        document.getElementById("YES").addEventListener("click",function(){
+            deleteTask(valueOfParent);
+            
+    
+            removeFromSession(valueOfParent);
+      
+        })
+           
+           
+       
 
     }
+}
+
+function getConfirmation(){
+    document.getElementById("DelFunction").style.display = "none";
+    // document.getElementById("delFUnction").classList.toggle("show");
+    document.getElementById("containerDel").style.display = "block";
+  
+    document.getElementById("YES").addEventListener("click",function(){
+        document.getElementById("DelFunction").style.display = "block";
+        document.getElementById("containerDel").style.display = "none";
+        
+    })
+
+    document.getElementById("NO").addEventListener("click",function(){
+        document.getElementById("DelFunction").style.display = "block";
+        document.getElementById("containerDel").style.display = "none";
+   
+    })
+    
+   
 }
 
 
@@ -546,12 +629,26 @@ function showMyCompleted() {
         x.style.display = "none";
     }
 
+    var z = document.getElementById("CategoryDiv");
+    if (z.style.display === "block") {
+        z.style.display = "none";
+    } 
     // var y = document.getElementById("CategoryDiv");
     // if(y.style.display === "block"){
     // y.style.display = "none";
     // }
 
-    document.getElementById("incompletedTask").classList.toggle("show");
+    var v = document.getElementById("dateTasks");
+    if (v.style.display === "block") {
+        v.style.display = "none";
+    }
+
+    var r = document.getElementById("incompletedTask");
+    if(r.style.display === "block"){
+        r.style.display = "none";
+    }
+
+
 }
 
 function showMyDataRange(){
@@ -562,7 +659,46 @@ function showMyDataRange(){
     } else {
         z.style.display = "none";
     }
+    var y = document.getElementById("CategoryDiv");
+    if (y.style.display === "block") {
+        y.style.display = "none";
+    } 
+    var x = document.getElementById("completedTasks")
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } 
+    var v = document.getElementById("incompletedTask");
+    if (v.style.display === "block") {
+        v.style.display = "none";
+    } 
 }
+
+
+function showMyTodo(){
+    var x = document.getElementById("incompletedTask");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } 
+
+    var y = document.getElementById("CategoryDiv");
+    if (y.style.display === "block") {
+        y.style.display = "none";
+    } 
+
+    var z = document.getElementById("dateTasks");
+    if (z.style.display === "none") {
+        z.style.display = "block";
+    } else {
+        z.style.display = "none";
+    }
+
+    var v = document.getElementById("completedTasks")
+    if (v.style.display === "block") {
+        v.style.display = "none";
+    } 
+
+}
+
 
 
 populateCategory();
@@ -580,7 +716,16 @@ function showMyCategory() {
     //     y.style.display = "none";
     // }
 
-    document.getElementById("incompletedTask").classList.toggle("show");
+    var y = document.getElementById("incompletedTask");
+    if (y.style.display === "block") {
+        y.style.display = "none";
+    } 
+
+    var z = document.getElementById("completedTasks");
+    if(z.style.display === "block"){
+        z.style.display = "none";
+    }
+    
 }
 
 function populateCategory() {
@@ -679,6 +824,31 @@ function pushDeadline() {
 function populateDateRange() {
     var gotStart = document.getElementById("startDate").value;
     var gotEnd = document.getElementById("endDate").value;
+
+
+    var Current_date = new Date();
+    var fT = new Date(gotStart);
+    var hT = new Date(gotEnd);
+ 
+
+    if(fT.getFullYear() >= Current_date.getFullYear())
+    {
+        if(fT.getMonth() >= Current_date.getMonth())
+        {
+            if(fT.getDate() >= Current_date.getDate())
+            {
+                if(hT.getTime()>fT.getTime())
+                {
+                    var valueOfDate = true;
+                    console.log(valueOfDate);
+                }
+               
+            }
+        }
+    }
+
+    if(valueOfDate == true)
+{
     var g1 = new Date(gotStart);
     var g2 = new Date(gotEnd);
 
@@ -713,9 +883,14 @@ function populateDateRange() {
 
         }
     }
-
-
+ 
+    document.getElementById("spanOfErrorRange").style.display = "none";
 }
+else{
+    document.getElementById("spanOfErrorRange").innerText = "Wrong Inputs. Check if past or start/end dates are filled correctly";
+}
+}
+   
 
 
 function rangeTask(rangeItem){

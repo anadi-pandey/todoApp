@@ -12,7 +12,7 @@ var pwd = password.value;
 var lowerCaseLetters = /[a-z]/g;
 var upperCaseLetters = /[A-Z]/g;
 var numberCheck = /[0-9]/g;
-let regEmailCheck = /^[a-z A-Z 0-9 _ -]+@[a-zA-Z]+\.com$/g;
+let regEmailCheck = /^[a-z A-Z . 0-9 _ -]+@[a-zA-Z]+\.com$/g;
 
 // ============ Image Upload and reference
 var imgUrl;

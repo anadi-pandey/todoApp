@@ -15,7 +15,7 @@
         <h1>
             Profile
         </h1>
-        <button onclick="parent.location = 'todoBeta.html'">TO-DO</button>
+        <button style="cursor: pointer;" onclick="parent.location = 'todoBeta.html' ">TO-DO</button>
     </div>
     <div class="upperBackground">
         <!-- <img src="./img/superhero-wallpaper-deteched40.jpg" alt=""> -->
@@ -24,7 +24,7 @@
             <div class="dp">
                 <div id="divRotate"
                     style="position: absolute;background-color: transparent; left: 680px; border: solid 10px #e6be8a; border-radius: 10px;padding: 2px; ">
-                    <label for="profileimg" style="color: black;">Upload Another</label><br>
+                    <label for="profileimg" style="color: black; cursor: pointer;">Upload Another</label><br>
 
                     <input style="display: none;" type="file" id="profileimg" name="profile-img" onchange="changeFile()"
                         required>
@@ -43,7 +43,7 @@
 
                 <p>GENDER: <input id="gender"></input></p>
                 <div class="saveDetails">
-                    <button id="saveDetails" onclick="saveMyDetails()">SAVE</button>
+                    <button style="cursor: pointer;" id="saveDetails" onclick="saveMyDetails()">SAVE</button>
                 </div>
             </div>
 

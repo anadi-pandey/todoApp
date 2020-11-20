@@ -37,25 +37,34 @@
             <button onclick="showMyCategory()">Category</button>
             <button onclick="showMyCompleted()">Completed</button>
             <button  onclick="showMyDataRange()">Date Range</button>
+            <button onclick="showMyTodo()">Todo</button>
         </div>
 
     </div>
+
+    <div id="DelFunction">
+
+ 
     <div class="container">
         <div class="fillForm" id="hideOn">
 
 
             <div>
                 <p>Please select your category:</p>
-                <input type="radio" id="important" name="category" value="Important">
-                <label for="urgent">Important</label><br>
-                <input type="radio" id="urgent" name="category" value=" Urgent">
-                <label for="normal">Urgent</label><br>
+
+                <input type="radio" id="important" name="category" value="Important">               
+                <label for="important">Important</label><br>
+
+                <input type="radio" id="urgent" name="category" value=" Urgent">                
+                <label for="urgent">Urgent</label><br>
+              
                 <input type="radio" id="normal" name="category" value="Normal">
                 <label for="normal">Normal</label>
 
                 <div style="margin-top: 20px;">
                     <label for="deadline">Deadline:</label>
                     <input type="date" id="deadline" name="deadline">
+                    <span style="color: red;position: relative; top: -1px;" id="DeadlineSpan"></span>
                 </div>
 
             </div>
@@ -72,14 +81,15 @@
                     <input type="checkbox" id="Reminder">
                 </div>
 
-                <label for="new-task">Add Item</label><input id="new-task" type="text"><button id="Add">Add</button>
+                <label for="new-task">Add Item</label><input id="new-task" type="text" required><button id="Add">Add</button>
+                <span style="color: red;position: relative; top: -9px;" id="ErrorSpan"></span>
             </div>
 
 
 
         </div>
 
-        <div id="incompletedTask" class="customsize">
+        <div id="incompletedTask" class="customsize" style="display: block;">
 
             <h2>Todo</h2>
             <ul id="incomplete-tasks">
@@ -167,6 +177,12 @@
                 <div>
                     <button type="button" onclick="populateDateRange()">Submit</button>
                 </div>
+
+            </div>
+            <div style="width: 600px; margin-left: auto; margin-right: auto;">
+               <span id="spanOfErrorRange">
+
+               </span> 
             </div>
 
         </form>
@@ -177,9 +193,23 @@
             </ul>
         </div>
     </div>
+</div>
 
+<div style="display: none;" id="containerDel">
+    <div class="outers">
+        <h4>
+            Confirm Deletion
+        </h4>
 
-
+        <button id="YES">
+            Yes
+        </button>
+         
+        <button id="NO">
+            Cancel
+        </button>
+    </div>
+</div>
 
 
 

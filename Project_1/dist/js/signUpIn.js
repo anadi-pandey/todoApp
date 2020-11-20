@@ -24,7 +24,7 @@ formin.addEventListener('submit', (e) => {
     function checkPassword(k){
         if (getDataArray[k].pass == recPass.value) {
             set_Session(k);
-            alert("Logged IN ");
+           
             // window.location(profile.html);
         } else {
             e.preventDefault();
