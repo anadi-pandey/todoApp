@@ -12,10 +12,10 @@
 <body>
 
     <div class="header">
-        <h1>
+        <h1 style="background-color: aliceblue; color:  #421C52; border-radius: 10px;">
             Profile
         </h1>
-        <button style="cursor: pointer;" onclick="parent.location = 'todoBeta.html' ">TO-DO</button>
+        <button style="cursor: pointer; box-shadow: aliceblue;" onclick="parent.location = 'todoBeta.html' ">TO-DO</button>
     </div>
     <div class="upperBackground">
         <!-- <img src="./img/superhero-wallpaper-deteched40.jpg" alt=""> -->
@@ -23,7 +23,7 @@
         <div class="profilesection">
             <div class="dp">
                 <div id="divRotate">
-                    <label for="profileimg" style="color: black; cursor: pointer;">Upload Another</label><br>
+                    <label for="profileimg" style=" cursor: pointer;">Upload Another</label><br>
 
                     <input  accept="image/*" style="display: none;" type="file" id="profileimg" name="profile-img" onchange="changeFile()"
                   required>
@@ -35,16 +35,16 @@
 
             </div>
             <div class="main_form">
-                <p> FIRST NAME : <input id="firstName"></input> </p>
+                <p> <label style="cursor: pointer; " for="firstName"> FIRST NAME : </label><input id="firstName"></input> </p>
 
                 <p>
                     LAST NAME: <input id="lastName"></input>
                 </p>
 
-                <p>EMAIL ADDRESS: <input id="userEmail"></input></p>
+                <p id="F">ADDRESS: <textarea id="userEmail"></textarea></p>
 
                 <p>GENDER: <select id="gender" name="Gender">
-                    <option id="genderIntial" value="Not Selected">Select Gender</option>
+                    <!-- <option id="genderIntial" value="Not Selected"></option> -->
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Other</option>
@@ -60,6 +60,22 @@
 
             <script>
                 function changeFile() {
+
+
+                    var fileInput =  
+                document.getElementById('profileimg'); 
+              
+            var filePath = fileInput.value; 
+          
+            // Allowing file type 
+            var allowedExtensions =  
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i; 
+              
+            if (!allowedExtensions.exec(filePath)) { 
+                alert('Invalid file type'); 
+                fileInput.value = ''; 
+                return false; }else{
+
                     let changePicInput = document.getElementById("profileimg");
                     let reader = new FileReader();
                     reader.readAsDataURL(changePicInput.files[0]);
@@ -78,6 +94,7 @@
                         console.log(new_session);
                         sessionStorage.setItem('current_user', new_session);
                     }
+                    window.location.reload();
                 }
                 window.addEventListener('load', function () {
                     document.querySelector('input[type="file"]').addEventListener('change', function () {
@@ -95,6 +112,9 @@
                 function imageIsLoaded() {
 
                 }
+                }
+
+
 
 
                 function saveMyDetails() {
@@ -106,8 +126,11 @@
                     var remind_them = usrNam.remind_user;
                     var password = usrNam.pass;
                     var image_src = usrNam.img;
-
-
+                    var emailAddress = usrNam.eadd;
+                    if(usrNam.files == undefined){
+                        usrNam.files = [];
+                    }
+                    var fileOfUser = usrNam.files;
 
                     let Fname = document.getElementById('firstName').value;
 
@@ -127,9 +150,9 @@
 
                     let Email = document.getElementById('userEmail').value;
                     if (Email != "") {
-                        var emailAddress = Email;
+                        var addressA = Email;
                     } else {
-                        var emailAddress = usrNam.eadd;
+                        var addressA = usrNam.address;
                     }
 
                     let Gender = document.getElementById('gender').value;
@@ -148,7 +171,9 @@
                         todo_items: todoitems,
                         pass: password,
                         img: image_src,
-                        remind_user: remind_them
+                        remind_user: remind_them,
+                        address:addressA,
+                        files:fileOfUser
                     }
 
                     console.log(obj);

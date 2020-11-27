@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
 $primary-color:#e6be8a;
-$secondary-color: 8
+$secondary-color: #421C52;
 
 *{
     padding: 0;
@@ -106,7 +106,11 @@ form.sign-up-form
             color: #aaa;
         }
     }
+
+  
 }
+
+
 
  select {
         width: 350px;
@@ -503,3 +507,4 @@ form.sign-up-form
 #gender select{
 color: $secondary-color;
 }
+

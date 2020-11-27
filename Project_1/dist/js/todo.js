@@ -14,6 +14,7 @@ for (i = 0; i < myNodelist.length; i++) {
 
 
 
+
 // ---------Click ability to close button-----------
 
 var close = document.getElementsByClassName("close");
@@ -264,6 +265,8 @@ function completeArray(doneThing) {
 
 
 }
+
+
 
 
 

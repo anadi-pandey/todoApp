@@ -541,4 +541,30 @@ select {
 #gender select {
   color: #421C52;
 }
+
+#addressInput{
+  /* height: 120px; */
+}
+
+#addressInput textarea{
+  /* height: 100px; */
+  width: 320px;
+  border-radius: 55px;
+  outline: transparent;
+ border: none;
+ background-color: transparent;
+ position: relative;
+ left: -4px;
+ padding: 10px;
+}
+
+#addressInput textarea::placeholder{
+  font-weight: 600;
+color:  #aaa;
+ font-size: 20px;
+ position: relative;
+ 
+}
+
 /*# sourceMappingURL=main.css.map */
+

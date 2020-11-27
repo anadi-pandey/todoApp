@@ -12,7 +12,7 @@ var pwd = password.value;
 var lowerCaseLetters = /[a-z]/g;
 var upperCaseLetters = /[A-Z]/g;
 var numberCheck = /[0-9]/g;
-let regEmailCheck = /^[a-z A-Z . 0-9 _ -]+@[a-zA-Z]+\.com$/g;
+let regEmailCheck = /\S+@\S+\.\S+/;
 
 // ============ Image Upload and reference
 var imgUrl;
@@ -26,22 +26,36 @@ window.addEventListener('load', function () {
         if (this.files && this.files[0]) {
             var img = document.querySelector('img');  // $('img')[0]
             img.src = URL.createObjectURL(this.files[0]); // set src to blob url
-            img.onload = imageIsLoaded;          
+            img.onload = imageIsLoaded;
         }
     });
 });
 
-function changeFile(){
+var imgTrue = false;
+function changeFile() {
     let changePicInput = document.getElementById("profileimg");
     let reader = new FileReader();
     reader.readAsDataURL(changePicInput.files[0]);
-    reader.onloadend = function(event) {
-        let Image = document.getElementById("profileimg");
-        Image.src = event.target.result;    
-        console.log(Image); 
-        imgUrl=Image.src;
-        console.log(imgUrl);
+
+    var filePath = changePicInput.value;
+    var allowedExtension = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+    if (!allowedExtension.exec(filePath)) {
+        alert('Invalid file type');
+        fileInput.value = '';
+        return false;
+        
+    } else {
+        reader.onloadend = function (event) {
+            let Image = document.getElementById("profileimg");
+            Image.src = event.target.result;
+            console.log(Image);
+            imgUrl = Image.src;
+            console.log(imgUrl);
+            imgTrue = true;
+        }
     }
+
 }
 
 
@@ -59,8 +73,7 @@ form.addEventListener('submit', (e) => {
 
 
     var local_values = localStorage.getItem('user');
-    if(local_values != null)
-    {
+    if (local_values != null) {
         var local_array = JSON.parse(local_values);
 
         for (let i = 0; i < local_array.length; i++) {
@@ -72,8 +85,11 @@ form.addEventListener('submit', (e) => {
         }
     }
 
+    if(imgUrl == undefined){
+        messages.push('Wrong Image Input');
+    }
 
-   
+
 
     if (password.value.length <= 6) {
         messages.push('Password must be longer than six characters')
@@ -100,7 +116,7 @@ form.addEventListener('submit', (e) => {
     } else {
         messages.push('Password must contain atleast one digit')
     }
-    if (regEmailCheck.test(email.value) && checkExist == 0||localStorage ==null) {
+    if (regEmailCheck.test(email.value) && checkExist == 0 || localStorage == null) {
 
         console.log('Email validation done')
     }
@@ -116,10 +132,9 @@ form.addEventListener('submit', (e) => {
     }
 
 
-
 })
 
-  
+
 
 // Adding user information in the local storage
 
@@ -131,18 +146,25 @@ function addUser() {
     let emailAdd = document.getElementById("emailAddr").value;
     let imgRef = imgUrl;
     let password = document.getElementById("conPassword").value;
+
     let array = [];
     let arrayRemind = ["No reminders yet"];
+
+
+    let addressUser = document.getElementById("addressAdded").value;
+    console.log(addressUser);
+
     var userObj = {
         fName: firstName,
         lName: lastName,
         gen: gender,
-        eadd: emailAdd,
+        eadd: emailAdd.toLowerCase(),
         img: imgRef,
         pass: password,
-        // Added recently,
-        todo_items:array,
-        remind_user:arrayRemind
+        address: addressUser,
+        todo_items: array,
+        remind_user: arrayRemind
+
     };
 
     Push_details_local(userObj);

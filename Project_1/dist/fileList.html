@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files TO-DO</title>
+    <link rel="stylesheet" href="./css/fileTodo.css">
+    <link rel="shortcut icon" type="image/png" href="../dist/img/download.png">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <button onclick="parent.location = 'profile.html'" id="profileBtn">Profile</button>
+        </div>
+        <div>
+            <h1>
+                TO-DO MANAGER
+            </h1>
+        </div>
+        <div>
+            <button  onclick="parent.location = 'todoBeta.html'" id="todoBtn">TO-DO</button>
+        </div>
+    </header>
+    <div id="fileContainer">
+        <div>
+            <h1>Manage TO-DO Files</h1>
+        </div>
+
+
+
+        <div id="StartPushing">
+
+
+        </div>
+
+
+    </div>
+    <div id="UploadWindow" style="display: none;">
+        <h1> Your Uploaded files appear here !</h1>
+        <div id="GetFiles">
+
+            <div>
+                <input id="UploadFile" onchange="changeFile()" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+            </div>
+        </div>
+        <div id="PreviousTaskHolder">
+            
+        </div>
+        <button id="positionBtn1">Upload</button>
+        <button id="positionBtn2" onclick="window.location = 'fileList.html'">Close</button>
+    </div>
+
+
+
+    <script src="./js/fileList.js"></script>
+   <script>
+       window.addEventListener("DOMContentLoaded", function () {
+                    if (sessionStorage.getItem("current_user") === null) {
+                        window.location = "index.html";
+                    }
+                })
+   </script>
+
+
+</body>
+
+</html>

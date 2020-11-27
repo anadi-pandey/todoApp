@@ -104,7 +104,7 @@ ul li.Completed{
     padding: 30px 40px;
     color: #421C52;
     text-align: center;
-    position: relative;
+    position: fixed;
 
     
   

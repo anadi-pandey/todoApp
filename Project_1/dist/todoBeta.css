@@ -10,10 +10,35 @@ body{
 
 
 
+#pop-new-task{
+  width: 80%;
+}
 
 
+#alertShow{
+  width: 1200px;
+  height: 50px;
+  border: solid #b76e79 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+}
 
+#alertShow span{
+padding-top: 20px;
+font-size: 20px;
+color: white;
+margin-right: 30px;
+color: tomato;
+border-bottom: solid  2px;
 
+}
+
+#alertShow marquee{
+  position: relative;
+  top: 20px;
+}
 
 
 
@@ -111,12 +136,34 @@ body{
   li >  input[type="text"] {
     width: 226px;
   }
+
+li > .delete{
+  position: absolute;
+  left: 95%;
+}
+
+li > .edit{
+  position: absolute;
+  left: 90%;
+}
+
   li > .delete:hover {
     color: #CF2323;
   }
   li > .edit:hover{
     color: green;
   }
+
+
+  .MultiDel >input[type="checkbox"]{
+    position: absolute;
+    left:0;
+    color: #b76e79;
+    border: #b76e79 solid 1px;
+    background-color: #b76e79;
+  }
+
+  
   li > span{
     color: aliceblue;
     margin-right: 10px;
@@ -162,6 +209,7 @@ body{
     justify-content: space-between;
     color: #421C52;
     width: 100vw;
+    /* position: fixed; */
   }
 
   header h1{
@@ -204,6 +252,7 @@ body{
     font-family: 'Poppins',sans-serif;
     color: black;
     font-size: 18px;
+    padding: 10px;
 }
 
 .fillForm label{
@@ -224,11 +273,24 @@ body{
   padding: 5px;
   position: relative;
   top: 20px;
+  padding: 20px;
 }
 
 #openform ::placeholder{
   color: #421C52;
 }
+
+.todoFlex{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+#openform .secondPart{
+  position: relative;
+  top: 10px;
+}
+
 
 #Add{
   background-color: cornsilk;
@@ -390,3 +452,85 @@ body{
   margin-left: 10px;
  
 }
+
+#fixTitle{
+  position: relative;
+  left: 30px;
+}
+
+
+#containerFile{
+  width: 1200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+ height: 400px;
+ position: absolute;
+ top: 30%;
+ left: 17%;
+  border: #b76e79 solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#closeBtn{
+  position: relative;
+  left: 45%;
+}
+
+#SaveMyChanges{
+  background-color: #421C52;
+  color: white;
+  height: 38px;
+}
+
+#TodoFilesFill{
+  position: relative;
+  top: 36%;
+}
+
+#delMul{
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+#delMul button{
+  background-color: #421C52;
+  color: white;
+  width: 150px;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  left: 42%;
+
+}
+
+#LabelFor{
+  position: relative;
+  
+  left: 28px;
+  top: 12px;
+  border: red solid 2px;
+  width: 8px;
+  height: 18px;
+ }
+
+
+ #Multi_btn{
+   width: 150px;
+   border: #b76e79 solid 1px;
+   position: relative;
+   left: 980px;
+   background-color: white;
+   color: #421C52;
+   border-radius: 8px;
+   font-weight: 500;
+ }
+
+ #Multi_btn:hover{
+   background-color: #b76e79;
+   color: white;
+ }
+

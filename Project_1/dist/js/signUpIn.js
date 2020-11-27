@@ -38,6 +38,12 @@ formin.addEventListener('submit', (e) => {
         }
     }
 
+    var nullCHeck = localStorage.getItem('user');
+    if(nullCHeck == "null"){
+        alert("User Not Registered");
+        e.preventDefault();
+    }
+
     if(validity == 0){
         alert("User Not Registered");
         e.preventDefault();

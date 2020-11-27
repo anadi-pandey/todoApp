@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/multi.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <button onclick="parent.location = 'profile.html'" id="profileBtn">Profile</button>
+        </div>
+        <div>
+            <h1>
+                TO-DO MANAGER
+            </h1>
+        </div>
+        <div>
+            <button id="signoutBtn">Sign Out</button>
+        </div>
+    </header>
+
+    <div id="ContainerDelete">
+        <h2>Multiple Delete Menu</h2>
+        <p>Tick the list items and click on delete</p>
+
+
+        <div id="deleteTaskHolder">
+            <ul id="deleteList">
+              
+
+            </ul>
+        </div>
+        <div>
+
+            <button id="DELETE">Delete</button>
+            <button id="CLOSE">Close</button>
+        </div>
+    </div>
+   
+    <script src="./js/multiDel.js"></script>
+</body>
+
+</html>
