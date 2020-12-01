@@ -941,6 +941,9 @@ function populateTodo() {
 
 
         var dd = today.getDate();
+        if(dd < 9){
+            dd = '0' + dd;
+        }
         var mm = today.getMonth() + 1;
         var yyyy = today.getFullYear();
 
@@ -951,16 +954,17 @@ function populateTodo() {
         console.log(today);
 
         for (j = 0; j < limit; j++) {
-
+               console.log(bringArray.todo_items[j].Deadline);
             if (bringArray.todo_items[j].Deadline == today && bringArray.todo_items[j].isComplete == false) {
                 // alert(bringArray.todo_items[j].Title + " has today's deadline");
 
 
-
+               
                 var x = document.createElement("SPAN");
                 var t = document.createTextNode(bringArray.todo_items[j].Title + " has today's deadline");
                 x.appendChild(t);
                 document.querySelector("#addAlerts").appendChild(x);
+
             }
 
         }

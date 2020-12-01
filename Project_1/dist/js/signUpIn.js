@@ -7,11 +7,21 @@ const formin = document.getElementById("formIN");
 
 
 formin.addEventListener('submit', (e) => {
+
+
     var validity = 0;
     let getData = localStorage.getItem('user');
     console.log(getData);
+
     let getDataArray = JSON.parse(getData);
+
     console.log(getDataArray);
+
+if(getData == null){
+    alert("User not Registered")
+    e.preventDefault();
+}
+
     for (i = 0; i < getDataArray.length; i++) {
         if (getDataArray[i].eadd == recEmail.value) {
         checkPassword(i);

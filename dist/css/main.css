@@ -540,4 +540,10 @@ select {
 #gender select {
   color: #421C52;
 }
+
+.input-field textarea {
+  height: 100px;
+  border: none;
+  outline: none;
+}
 /*# sourceMappingURL=main.css.map */
